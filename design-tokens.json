@@ -1,0 +1,78 @@
+{
+  "color": {
+    "bg":           { "$value": "#0a0a0f", "$type": "color", "$description": "Base background — near-black with faint violet undertone", "$extensions": { "anydesign": { "confidence": "high", "previous": "#0a0a0a" } } },
+    "bg-elev":      { "$value": "#111118", "$type": "color", "$description": "Elevated surface — stats, case dividers", "$extensions": { "anydesign": { "confidence": "high", "previous": "#111111" } } },
+    "border":       { "$value": "#1e1e2a", "$type": "color", "$description": "Default hairline — section dividers, grid lines", "$extensions": { "anydesign": { "confidence": "high", "previous": "#1f1f1f" } } },
+    "border-strong":{ "$value": "#28283a", "$type": "color", "$description": "Stronger hairline — card borders", "$extensions": { "anydesign": { "confidence": "high", "previous": "#2a2a2a" } } },
+    "text": {
+      "primary":    { "$value": "#fafafa", "$type": "color", "$description": "Primary text — headings, body", "$extensions": { "anydesign": { "confidence": "high" } } },
+      "muted":      { "$value": "#a0a0b0", "$type": "color", "$description": "Secondary text — taglines, descriptions", "$extensions": { "anydesign": { "confidence": "high", "previous": "#a0a0a0" } } },
+      "dim":        { "$value": "#666677", "$type": "color", "$description": "Tertiary / metadata — timestamps, mono labels", "$extensions": { "anydesign": { "confidence": "high", "previous": "#666666" } } }
+    },
+    "accent":       { "$value": "#a78bfa", "$type": "color", "$description": "Chromatic voltage — section numbers, CTAs, active states, cursor blink. Violet-400. ONE chromatic moment in a neutral system.", "$extensions": { "anydesign": { "confidence": "high", "previous": "#a3e635", "contrast-on-bg": "7.27:1 (AAA)" } } },
+    "accent-dim":   { "$value": "#6d28d9", "$type": "color", "$description": "Dimmed accent — scrollbar thumb hover, subtle tints", "$extensions": { "anydesign": { "confidence": "high", "previous": "#6b8e1f" } } }
+  },
+  "typography": {
+    "font-family": {
+      "sans":   { "$value": "Geist, -apple-system, BlinkMacSystemFont, system-ui, sans-serif", "$type": "fontFamily", "$extensions": { "anydesign": { "confidence": "high" } } },
+      "mono":   { "$value": "JetBrains Mono, SF Mono, Menlo, monospace", "$type": "fontFamily", "$extensions": { "anydesign": { "confidence": "high" } } },
+      "serif":  { "$value": "Instrument Serif, Georgia, serif", "$type": "fontFamily", "$extensions": { "anydesign": { "confidence": "high" } } }
+    },
+    "font-size": {
+      "display":       { "$value": "clamp(48px, 8vw, 96px)", "$type": "dimension", "$description": "Hero name" },
+      "h2-display":    { "$value": "clamp(28px, 4vw, 44px)", "$type": "dimension", "$description": "Research quote, section large display" },
+      "body-large":    { "$value": "clamp(20px, 2.4vw, 28px)", "$type": "dimension", "$description": "Hero tagline, currently text" },
+      "project-title": { "$value": "22px", "$type": "dimension" },
+      "section-h3":    { "$value": "18px", "$type": "dimension" },
+      "body":          { "$value": "16px", "$type": "dimension" },
+      "body-sm":       { "$value": "14px", "$type": "dimension" },
+      "caption":       { "$value": "13px", "$type": "dimension", "$description": "Nav links, CTA text (mono)" },
+      "eyebrow":       { "$value": "12px", "$type": "dimension", "$description": "Section eyebrows (mono)" },
+      "micro":         { "$value": "11px", "$type": "dimension", "$description": "Tags, timestamps, section anchors (mono)" },
+      "nano":          { "$value": "10px", "$type": "dimension", "$description": "Skill tags, smallest labels (mono)" }
+    },
+    "font-weight": {
+      "regular":  { "$value": "400", "$type": "fontWeight" },
+      "medium":   { "$value": "500", "$type": "fontWeight", "$description": "Ceiling — display type never goes above this" }
+    },
+    "letter-spacing": {
+      "display-tight":  { "$value": "-3px",  "$type": "dimension", "$description": "Hero name (display)" },
+      "heading-tight":  { "$value": "-1px",  "$type": "dimension", "$description": "Display quotes" },
+      "heading-subtle": { "$value": "-0.5px","$type": "dimension", "$description": "Project titles, interest titles" },
+      "mono-wide":      { "$value": "1.5px", "$type": "dimension", "$description": "Mono eyebrows and labels — always positive" },
+      "mono-narrow":    { "$value": "0.5px", "$type": "dimension", "$description": "Mono captions" }
+    }
+  },
+  "spacing": {
+    "1":  { "$value": "4px",  "$type": "dimension" },
+    "2":  { "$value": "8px",  "$type": "dimension" },
+    "3":  { "$value": "12px", "$type": "dimension" },
+    "4":  { "$value": "16px", "$type": "dimension" },
+    "5":  { "$value": "20px", "$type": "dimension" },
+    "6":  { "$value": "24px", "$type": "dimension" },
+    "7":  { "$value": "28px", "$type": "dimension" },
+    "8":  { "$value": "32px", "$type": "dimension" },
+    "9":  { "$value": "36px", "$type": "dimension" },
+    "12": { "$value": "48px", "$type": "dimension" },
+    "14": { "$value": "56px", "$type": "dimension" },
+    "15": { "$value": "60px", "$type": "dimension" },
+    "20": { "$value": "80px", "$type": "dimension" },
+    "25": { "$value": "100px","$type": "dimension" }
+  },
+  "radius": {
+    "xs": { "$value": "4px",  "$type": "dimension", "$description": "Buttons, nav-scale controls — near-square" },
+    "sm": { "$value": "6px",  "$type": "dimension", "$description": "Cards (note-card, reflection) — only slightly rounded" }
+  },
+  "border": {
+    "hairline": { "$value": "0.5px", "$type": "dimension", "$description": "Sub-pixel — Retina-optimized. Used everywhere structural." }
+  },
+  "$extensions": {
+    "anydesign": {
+      "source": "http://localhost:3000",
+      "captured_at": "2026-05-31",
+      "method": "css-vars-extraction — direct source access to app/globals.css",
+      "spec": "W3C Design Tokens Community Group 2025.10",
+      "note": "All tokens are at ✅ high confidence — extracted from explicit CSS custom properties, not inferred from screenshots. Refresh palette included alongside current values for migration reference."
+    }
+  }
+}
