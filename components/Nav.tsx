@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Home, Folder, User, PenLine, Mail, Search } from "lucide-react";
+import { Home, Folder, User, PenLine, Mail, Search, Sun, Moon, Monitor } from "lucide-react";
 
 const COMMANDS = [
   { href: "/",        label: "Home",    icon: Home,    num: "1" },
@@ -18,6 +18,20 @@ export default function Nav() {
   const [open, setOpen]       = useState(false);
   const [query, setQuery]     = useState("");
   const [selected, setSelected] = useState(0);
+  const [theme, setTheme] = useState<"dark" | "light" | "system">("system");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme") as "dark" | "light" | "system" | null;
+    if (saved === "dark" || saved === "light" || saved === "system") setTheme(saved);
+  }, []);
+
+  const toggleTheme = () => {
+    const cycle = { system: "dark", dark: "light", light: "system" } as const;
+    const next = cycle[theme];
+    setTheme(next);
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem("theme", next);
+  };
   const inputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -89,16 +103,30 @@ export default function Nav() {
             Pavan Gajula<span className="cmd-nav-dot">.</span>
           </Link>
 
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            className="cmd-jump-btn"
-            aria-label="Open command palette (⌘K)"
-          >
-            <Search size={13} strokeWidth={2.5} />
-            <span>Jump to...</span>
-            <kbd className="cmd-nav-kbd">⌘K</kbd>
-          </button>
+          <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="cmd-jump-btn"
+              aria-label={`Theme: ${theme}`}
+              style={{ padding: "8px 10px" }}
+              title={`Theme: ${theme}`}
+            >
+              {theme === "dark"  && <Moon    size={14} strokeWidth={2} />}
+              {theme === "light" && <Sun     size={14} strokeWidth={2} />}
+              {theme === "system"&& <Monitor size={14} strokeWidth={2} />}
+            </button>
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              className="cmd-jump-btn"
+              aria-label="Open command palette (⌘K)"
+            >
+              <Search size={13} strokeWidth={2.5} />
+              <span>Jump to...</span>
+              <kbd className="cmd-nav-kbd">⌘K</kbd>
+            </button>
+          </div>
         </div>
       </header>
 

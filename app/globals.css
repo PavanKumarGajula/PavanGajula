@@ -1,27 +1,129 @@
-@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&family=Nunito+Sans:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ── FONTS & RADIUS (theme-agnostic) ─────────── */
 :root {
-  --bg: #0a0a0a;
-  --bg-elev: #111111;
-  --border: #1f1f1f;
-  --border-strong: #2a2a2a;
-  --text: #fafafa;
-  --text-muted: #a0a0a0;
-  --text-dim: #666666;
-  --accent: #a3e635;
-  --accent-dim: #6b8e1f;
   --font-display: 'League Spartan', sans-serif;
-  --font-body: 'Nunito Sans', sans-serif;
-  --sans: var(--font-display);
-  --body: var(--font-body);
-  /* Legacy variables kept for other pages */
-  --bg-elevated: #111111;
-  --emerald: #10b981;
-  --emerald-dim: #047857;
+  --font-body:    'Nunito Sans', sans-serif;
+  --sans:         var(--font-display);
+  --body:         var(--font-body);
+  --border-radius-lg: 12px;
+  --border-radius-md: 8px;
+}
+
+/* ── DARK THEME ──────────────────────────────── */
+:root[data-theme="dark"] {
+  --bg:             #0a0b0b;
+  --surface:        #121414;
+  --surface-raised: #171a18;
+  --border:         #212522;
+  --border-strong:  #2c322e;
+  --text:           #eef1ee;
+  --text-2:         #99a39d;
+  --text-muted:     #99a39d;
+  --text-dim:       #5b635d;
+  --accent:         #059669;
+  --accent-text:    #34d399;
+  --accent-hover:   #6ee7b7;
+  --on-accent:      #04130d;
+  --glow:           rgba(16,185,129,.20);
+  --shadow:         none;
+  --error-bg:       rgba(239,68,68,.12);
+  --error-border:   rgba(239,68,68,.35);
+  --error-text:     #fca5a5;
+  /* Compat aliases */
+  --bg-elev:       var(--surface);
+  --bg-elevated:   var(--surface);
+  --accent-dim:    var(--accent-hover);
+  --emerald:       var(--accent-text);
+  --emerald-dim:   var(--accent-hover);
+  --accent-subtle: rgba(5,150,105,.06);
+  --nav-bg:        rgba(10,11,11,.92);
+  --item-hover:    rgba(255,255,255,.06);
+  /* StraightPathCase tokens */
+  --color-background-primary:   var(--bg);
+  --color-background-secondary: var(--surface);
+  --color-text-primary:         var(--text);
+  --color-text-secondary:       var(--text-2);
+  --color-text-tertiary:        var(--text-dim);
+  --color-border-secondary:     var(--border-strong);
+  --color-border-tertiary:      var(--border);
+}
+
+/* ── LIGHT THEME ─────────────────────────────── */
+:root[data-theme="light"] {
+  --bg:             #f6f7f5;
+  --surface:        #ffffff;
+  --surface-raised: #ffffff;
+  --border:         #e7e7e4;
+  --border-strong:  #d6d6d2;
+  --text:           #18181b;
+  --text-2:         #52525b;
+  --text-muted:     #52525b;
+  --text-dim:       #a1a1aa;
+  --accent:         #059669;
+  --accent-text:    #047857;
+  --accent-hover:   #065f46;
+  --on-accent:      #04130d;
+  --glow:           rgba(5,150,105,.08);
+  --shadow:         0 12px 32px -16px rgba(0,0,0,.18);
+  --error-bg:       #fef2f2;
+  --error-border:   #fecaca;
+  --error-text:     #b91c1c;
+  /* Compat aliases */
+  --bg-elev:       var(--surface);
+  --bg-elevated:   var(--surface);
+  --accent-dim:    var(--accent-hover);
+  --emerald:       var(--accent-text);
+  --emerald-dim:   var(--accent-hover);
+  --accent-subtle: rgba(5,150,105,.08);
+  --nav-bg:        rgba(246,247,245,.92);
+  --item-hover:    rgba(0,0,0,.05);
+  /* StraightPathCase tokens */
+  --color-background-primary:   var(--bg);
+  --color-background-secondary: var(--surface);
+  --color-text-primary:         var(--text);
+  --color-text-secondary:       var(--text-2);
+  --color-text-tertiary:        var(--text-dim);
+  --color-border-secondary:     var(--border-strong);
+  --color-border-tertiary:      var(--border);
+}
+
+/* ── SYSTEM THEME — follows OS prefers-color-scheme ── */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] {
+    --bg: #0a0b0b; --surface: #121414; --surface-raised: #171a18;
+    --border: #212522; --border-strong: #2c322e;
+    --text: #eef1ee; --text-2: #99a39d; --text-muted: #99a39d; --text-dim: #5b635d;
+    --accent: #059669; --accent-text: #34d399; --accent-hover: #6ee7b7; --on-accent: #04130d;
+    --glow: rgba(16,185,129,.20); --shadow: none;
+    --error-bg: rgba(239,68,68,.12); --error-border: rgba(239,68,68,.35); --error-text: #fca5a5;
+    --bg-elev: var(--surface); --bg-elevated: var(--surface);
+    --accent-dim: var(--accent-hover); --emerald: var(--accent-text); --emerald-dim: var(--accent-hover);
+    --accent-subtle: rgba(5,150,105,.06); --nav-bg: rgba(10,11,11,.92); --item-hover: rgba(255,255,255,.06);
+    --color-background-primary: var(--bg); --color-background-secondary: var(--surface);
+    --color-text-primary: var(--text); --color-text-secondary: var(--text-2);
+    --color-text-tertiary: var(--text-dim); --color-border-secondary: var(--border-strong); --color-border-tertiary: var(--border);
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root[data-theme="system"] {
+    --bg: #f6f7f5; --surface: #ffffff; --surface-raised: #ffffff;
+    --border: #e7e7e4; --border-strong: #d6d6d2;
+    --text: #18181b; --text-2: #52525b; --text-muted: #52525b; --text-dim: #a1a1aa;
+    --accent: #059669; --accent-text: #047857; --accent-hover: #065f46; --on-accent: #04130d;
+    --glow: rgba(5,150,105,.08); --shadow: 0 12px 32px -16px rgba(0,0,0,.18);
+    --error-bg: #fef2f2; --error-border: #fecaca; --error-text: #b91c1c;
+    --bg-elev: var(--surface); --bg-elevated: var(--surface);
+    --accent-dim: var(--accent-hover); --emerald: var(--accent-text); --emerald-dim: var(--accent-hover);
+    --accent-subtle: rgba(5,150,105,.08); --nav-bg: rgba(246,247,245,.92); --item-hover: rgba(0,0,0,.05);
+    --color-background-primary: var(--bg); --color-background-secondary: var(--surface);
+    --color-text-primary: var(--text); --color-text-secondary: var(--text-2);
+    --color-text-tertiary: var(--text-dim); --color-border-secondary: var(--border-strong); --color-border-tertiary: var(--border);
+  }
 }
 
 /* ─── TYPE SYSTEM ─────────────────────────────── */
@@ -88,7 +190,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: var(--bg);
+  color: var(--on-accent);
 }
 
 /* Container */
@@ -161,7 +263,7 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(10, 10, 10, 0.92);
+  background: var(--nav-bg);
   border-bottom: 0.5px solid var(--border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -286,7 +388,7 @@ body {
 }
 .cmd-item:hover,
 .cmd-item--active {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--item-hover);
   color: var(--text);
 }
 .cmd-item-icon { flex-shrink: 0; }
@@ -397,7 +499,7 @@ body {
 .btn:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(163, 230, 53, 0.04);
+  background: rgba(5, 150, 105, 0.08);
 }
 .btn-primary {
   background: var(--accent);
@@ -478,7 +580,7 @@ body {
   padding: 32px 28px;
   transition: background 0.3s ease;
 }
-.interest-card:hover { background: rgba(163, 230, 53, 0.03); }
+.interest-card:hover { background: rgba(5, 150, 105, 0.06); }
 .interest-tag {
   font-family: var(--font-body);
   font-size: 0.75rem;
@@ -543,7 +645,7 @@ body {
   text-decoration: none;
 }
 .project-row:last-child { border-bottom: 0.5px solid var(--border); }
-.project-row:hover { background: rgba(163, 230, 53, 0.02); }
+.project-row:hover { background: rgba(5, 150, 105, 0.05); }
 .project-row:hover .project-title { color: var(--accent); }
 .project-row:hover .project-cta { color: var(--accent); }
 .project-row:hover .project-cta .arrow { transform: translateX(6px); }
@@ -694,8 +796,8 @@ body {
 /* SCROLLBAR */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--bg-elev); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
 /* FOCUS */
 a:focus-visible,
@@ -742,7 +844,7 @@ button:focus-visible {
   padding: 36px 36px 32px;
   max-width: 780px;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, rgba(163, 230, 53, 0.02), transparent);
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), transparent);
 }
 .note-card:hover { border-color: var(--accent); }
 .note-meta {
@@ -802,7 +904,7 @@ button:focus-visible {
   letter-spacing: 2px;
   border-top: 0.5px solid var(--border);
   border-bottom: 0.5px solid var(--border);
-  background: #050505;
+  background: var(--bg);
 }
 .case-header {
   padding: 80px 0 60px;
@@ -909,7 +1011,7 @@ button:focus-visible {
 }
 
 .reflection {
-  background: rgba(163, 230, 53, 0.03);
+  background: rgba(5, 150, 105, 0.06);
   border: 0.5px solid var(--border-strong);
   border-radius: 6px;
   padding: 32px;
@@ -1120,8 +1222,8 @@ button:focus-visible {
 
 .bg-grid {
   background-image:
-    linear-gradient(rgba(163, 230, 53, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(163, 230, 53, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(5, 150, 105, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5, 150, 105, 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
@@ -1130,7 +1232,7 @@ button:focus-visible {
 }
 
 .text-gradient-emerald {
-  background: linear-gradient(135deg, #6ee7b7 0%, #10b981 50%, #047857 100%);
+  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent) 50%, var(--accent-text) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1205,7 +1307,7 @@ button:focus-visible {
   border: 0.5px solid var(--border-strong);
   border-radius: 6px;
   padding: 40px;
-  background: linear-gradient(135deg, rgba(163, 230, 53, 0.02), transparent);
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), transparent);
 }
 .form-row {
   display: grid;
@@ -1270,7 +1372,7 @@ button:focus-visible {
 .type-btn.active {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(163, 230, 53, 0.05);
+  background: rgba(5, 150, 105, 0.10);
 }
 
 .form-note {
@@ -1286,7 +1388,7 @@ button:focus-visible {
   border: 0.5px solid var(--accent);
   border-radius: 6px;
   padding: 40px;
-  background: rgba(163, 230, 53, 0.03);
+  background: rgba(5, 150, 105, 0.06);
 }
 .contact-success-title {
   font-family: var(--sans);

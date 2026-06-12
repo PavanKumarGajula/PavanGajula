@@ -1,3 +1,5 @@
+import StraightPathCase from "@/components/StraightPathCase";
+
 export default function WorkPage() {
   return (
     <>
@@ -20,151 +22,12 @@ export default function WorkPage() {
       </div>
 
       {/* ── CASE 1 — STRAIGHT PATH ATHLETICS ── */}
-      <div className="case" id="case-1">
+      <div className="case" id="case-1" style={{ paddingBottom: "80px" }}>
         <div className="container">
-          <header className="case-header">
-            <div className="case-meta">
-              <span>001 / SELECTED WORK</span>
-              <span className="accent">VOLUNTEER &middot; NONPROFIT</span>
-              <span>2025 — PRESENT</span>
-            </div>
-            <h1 className="case-title">Straight Path Athletics</h1>
-            <p className="case-tagline">
-              Took a youth sports nonprofit off paper and a pile of scattered
-              apps, onto one platform the volunteers can run themselves.
-            </p>
-          </header>
-
-          <section className="case-body">
-            <div className="case-grid">
-              <aside className="case-sidebar">
-                <div className="case-sidebar-block">
-                  <div className="case-sidebar-label">CLIENT</div>
-                  <div className="case-sidebar-value">
-                    Straight Path Athletics &middot; youth sports nonprofit
-                  </div>
-                </div>
-                <div className="case-sidebar-block">
-                  <div className="case-sidebar-label">SERVES</div>
-                  <div className="case-sidebar-value">
-                    200+ young athletes &middot; Flag Football &amp; Basketball
-                    &middot; Howard County, MD
-                  </div>
-                </div>
-                <div className="case-sidebar-block">
-                  <div className="case-sidebar-label">MY ROLE</div>
-                  <div className="case-sidebar-value">
-                    Technical Lead &middot; diagnose needs, choose tools, get
-                    community buy-in, implement &middot; 450+ volunteer hours
-                  </div>
-                </div>
-                <div className="case-sidebar-block">
-                  <div className="case-sidebar-label">STACK</div>
-                  <div className="case-sidebar-value">
-                    TeamSnap &middot; Stripe payments
-                  </div>
-                </div>
-                <div className="case-sidebar-block">
-                  <div className="case-sidebar-label">LIVE</div>
-                  <div className="case-sidebar-value">
-                    <a
-                      href="https://straightpathathletics.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      straightpathathletics.com
-                    </a>
-                  </div>
-                </div>
-              </aside>
-
-              <article className="case-content">
-                <h3 data-step="01 · PROBLEM">
-                  A nonprofit running on paper and a dozen scattered apps
-                </h3>
-                <p>
-                  Straight Path runs Flag Football and Basketball for{" "}
-                  <strong>200+ kids in Howard County, Maryland</strong>. When I
-                  started, the organization was held together by whatever tool
-                  was closest to hand. A separate website. WhatsApp for parent
-                  communication. Paper forms for registration. Checks for fees.
-                  None of it talked to anything else, and keeping it all in sync
-                  ate the volunteers&apos; time. The limit on growth was never
-                  demand. It was coordination.
-                </p>
-
-                <h3 data-step="02 · ROLE">
-                  Find the problem, choose the fix, get it approved
-                </h3>
-                <p>
-                  I&apos;m the technical lead here, not the hired developer. The
-                  job is to watch how the community actually operates, find where
-                  it loses time or loses trust, and match each problem to a
-                  solution. I don&apos;t decide alone &mdash; I bring a
-                  recommendation to the organization, they approve it, and then I
-                  implement it. That approval loop is the point: a volunteer-run
-                  nonprofit has to understand and own its tools long after
-                  I&apos;ve stepped back.
-                </p>
-
-                <h3 data-step="03 · CONSTRAINTS">Mobile-first, payment-first</h3>
-                <p>
-                  Two realities shaped every decision. Parents sign their kids up
-                  on a phone during school pickup, not at a desktop, so every
-                  flow had to be fast and obvious on a phone. And the whole
-                  exercise was pointless if fees couldn&apos;t be collected
-                  online. Looking good came a distant third, behind working on a
-                  phone and taking a payment.
-                </p>
-
-                <h3 data-step="04 · SOLUTION">One platform instead of ten</h3>
-                <p>
-                  The recommendation was to stop stitching tools together and
-                  move everything onto <strong>TeamSnap</strong>. It runs
-                  registration across all 5+ programs, processes fees and
-                  donations through Stripe, and handles parent communication and
-                  notifications. One system, in place of the website, the
-                  WhatsApp threads, the paper, and the checkbook &mdash; and one
-                  that a non-technical volunteer can keep running without me.
-                </p>
-
-                <div className="case-callout">
-                  The right answer wasn&apos;t a custom site. It was one
-                  consolidated, maintainable platform the people there could
-                  actually run.
-                </div>
-
-                <h3 data-step="05 · OUTCOME">From scattered to consolidated</h3>
-                <p>
-                  The organization went from paper-and-pieces to fully online in
-                  a single season. Registration and payments that used to live on
-                  printed forms and checks now run through one platform. For a
-                  nonprofit whose entire prior presence was a Facebook page,
-                  going from invisible to discoverable and payable is the whole
-                  win.
-                </p>
-
-                <div className="reflection">
-                  <div className="reflection-label">WHAT STUCK WITH ME</div>
-                  <p>
-                    The most useful thing I did on this project was not build
-                    anything. The right answer wasn&apos;t a custom site. It was
-                    seeing that a volunteer organization needed one consolidated,
-                    maintainable platform more than it needed bespoke code, and
-                    choosing the tool the people there could actually run.{" "}
-                    <strong>
-                      Knowing when not to write software is its own engineering
-                      decision.
-                    </strong>
-                  </p>
-                </div>
-              </article>
-            </div>
-          </section>
+          <StraightPathCase />
         </div>
       </div>
 
-      <div className="case-divider">— END CASE 1 —</div>
 
       {/* ── CASE 2 — SYNACK SOLUTIONS ── */}
       <div className="case" id="case-2">
@@ -330,7 +193,6 @@ export default function WorkPage() {
         </div>
       </div>
 
-      <div className="case-divider">— END CASE 2 —</div>
 
       {/* ── CASE 3 — HKM ENGINEERS ── */}
       <div className="case" id="case-3">
@@ -486,7 +348,6 @@ export default function WorkPage() {
         </div>
       </div>
 
-      <div className="case-divider">— END OF CASES —</div>
-    </>
+</>
   );
 }
