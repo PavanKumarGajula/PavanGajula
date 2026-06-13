@@ -420,6 +420,37 @@ body {
   padding: 160px 0 100px;
   position: relative;
 }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 64px;
+  align-items: center;
+}
+.hero-text {
+  min-width: 0;
+}
+.hero-photo-wrap {
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.5s forwards;
+}
+.hero-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--border);
+}
+/* Subtle accent corner accent */
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(217, 119, 87, 0.15);
+  border-radius: 4px;
+  pointer-events: none;
+}
 .hero-eyebrow {
   font-family: var(--font-body);
   font-size: 0.75rem;
@@ -823,6 +854,17 @@ button:focus-visible {
   .nav-links { gap: 16px; font-size: 12px; }
   .nav-links a { padding: 10px 4px; min-height: 44px; display: flex; align-items: center; }
   .hero { padding: 120px 0 60px; }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-photo-wrap {
+    order: -1;
+  }
+  .hero-photo {
+    aspect-ratio: 4 / 3;
+    max-height: 280px;
+  }
   .project-row {
     grid-template-columns: 40px 1fr;
     gap: 12px;

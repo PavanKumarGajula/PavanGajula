@@ -1,26 +1,46 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <>
       {/* HERO */}
       <section className="hero">
         <div className="container">
-          <div className="hero-eyebrow">
-            FULL-STACK &middot; MARYLAND &middot; CURRENTLY @ SYNACK
-          </div>
-          <h1 className="hero-name">
-            Pavan <span className="serif">Gajula</span>.
-          </h1>
-          <p className="hero-tagline">
-            Five years building <strong>enterprise systems</strong> in Java and React.<br />
-            Two years shipping <strong>websites</strong> for the people who actually need them.<br />
-            Lately, I keep noticing the same thing &mdash;{" "}
-            <span className="accent">and I want to study it seriously.</span>
-          </p>
-          <div className="hero-actions">
-            <a href="/work" className="btn btn-primary">
-              view work <span className="arrow">→</span>
-            </a>
-            <a href="#" className="btn">download CV</a>
+          <div className="hero-inner">
+            {/* Text column */}
+            <div className="hero-text">
+              <div className="hero-eyebrow">
+                FULL-STACK &middot; MARYLAND &middot; CURRENTLY @ SYNACK
+              </div>
+              <h1 className="hero-name">
+                Pavan <span className="serif">Gajula</span>.
+              </h1>
+              <p className="hero-tagline">
+                Five years building <strong>enterprise systems</strong> in Java and React.<br />
+                Two years shipping <strong>websites</strong> for the people who actually need them.<br />
+                Lately, I keep noticing the same thing &mdash;{" "}
+                <span className="accent">and I want to study it seriously.</span>
+              </p>
+              <div className="hero-actions">
+                <a href="/work" className="btn btn-primary">
+                  view work <span className="arrow">→</span>
+                </a>
+                <a href="#" className="btn">download CV</a>
+              </div>
+            </div>
+
+            {/* Photo column */}
+            <div className="hero-photo-wrap">
+              <div className="hero-photo">
+                <Image
+                  src="/photo.jpg"
+                  alt="Pavan Gajula"
+                  fill
+                  style={{ objectFit: "cover", objectPosition: "center top" }}
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
