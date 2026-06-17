@@ -1,46 +1,46 @@
-import Image from "next/image";
+import dynamic from "next/dynamic";
+import MagicBento from "@/components/MagicBento";
+
+const Lanyard = dynamic(() => import("@/components/Lanyard"), { ssr: false });
 
 export default function Home() {
   return (
     <>
       {/* HERO */}
       <section className="hero">
-        <div className="container">
-          <div className="hero-inner">
-            {/* Text column */}
-            <div className="hero-text">
-              <div className="hero-eyebrow">
-                FULL-STACK &middot; MARYLAND &middot; CURRENTLY @ SYNACK
-              </div>
-              <h1 className="hero-name">
-                Pavan <span className="serif">Gajula</span>.
-              </h1>
-              <p className="hero-tagline">
-                Five years building <strong>enterprise systems</strong> in Java and React.<br />
-                Two years shipping <strong>websites</strong> for the people who actually need them.<br />
-                Lately, I keep noticing the same thing &mdash;{" "}
-                <span className="accent">and I want to study it seriously.</span>
-              </p>
-              <div className="hero-actions">
-                <a href="/work" className="btn btn-primary">
-                  view work <span className="arrow">→</span>
-                </a>
-                <a href="#" className="btn">download CV</a>
-              </div>
-            </div>
+        {/* Lanyard — interactive hanging card with profile photo */}
+        <div className="pg-lanyard-wrap">
+          <Lanyard
+            position={[0, 0, 20]}
+            gravity={[0, -40, 0]}
+            frontImage={"/images/ProfilePic.jpeg" as any}
+            imageFit="cover"
+          />
+        </div>
 
-            {/* Photo column */}
-            <div className="hero-photo-wrap">
-              <div className="hero-photo">
-                <Image
-                  src="/photo.jpg"
-                  alt="Pavan Gajula"
-                  fill
-                  style={{ objectFit: "cover", objectPosition: "center top" }}
-                  priority
-                />
-              </div>
-            </div>
+        {/* Name — bottom-right */}
+        <h1 className="pg-name">
+          <span>Pavan</span>
+          <span>Gajula</span>
+        </h1>
+
+        {/* Role / location — left, vertically centered */}
+        <div className="pg-eyebrow">
+          <div className="rule" />
+          {/* TODO: update with your preferred tagline */}
+          <div className="label">Full-Stack &middot; Maryland &middot; Synack</div>
+        </div>
+
+        {/* Lede + CTA — bottom-left */}
+        <div className="pg-actions">
+          {/* TODO: refine this copy */}
+          <p className="pg-lede">
+            Five years building enterprise systems in Java and React.
+            Researching how developers trust AI-generated code.
+          </p>
+          <div className="pg-btns">
+            <a href="/work" className="pg-btn pg-btn-primary">View work →</a>
+            <a href="#" className="pg-btn pg-btn-ghost">Download CV</a>
           </div>
         </div>
       </section>
@@ -91,47 +91,20 @@ export default function Home() {
             </div>
             <div className="section-meta">three threads</div>
           </div>
-
-          <div className="interests-grid">
-            <div className="interest-card">
-              <div className="interest-tag">01 &middot; HUMAN-AI INTERACTION</div>
-              <div className="interest-title">
-                Why do I trust AI more in Java than in bash?
-              </div>
-              <div className="interest-desc">
-                My skepticism rises and falls with how well I know the language.
-                The places I get burned are exactly the places I&apos;m not
-                paying close attention &mdash; which is exactly where AI tools
-                are most useful, and most risky.
-              </div>
-            </div>
-
-            <div className="interest-card">
-              <div className="interest-tag">02 &middot; DEVELOPER TOOLS</div>
-              <div className="interest-title">
-                What would a tool that helped me not accept code look like?
-              </div>
-              <div className="interest-desc">
-                Most AI coding tools are designed around the accept button. The
-                harder design problem is making it cheap and natural to push
-                back, edit, or reject &mdash; especially when accepting feels
-                easiest.
-              </div>
-            </div>
-
-            <div className="interest-card">
-              <div className="interest-tag">03 &middot; PROGRAMMER EXPERIENCE</div>
-              <div className="interest-title">
-                What happens to learning when AI writes the boilerplate?
-              </div>
-              <div className="interest-desc">
-                Boilerplate is how junior developers used to learn the shape of
-                a system. When the AI writes it for them, the path is faster
-                &mdash; but the path through the path is missing. I&apos;m not
-                sure yet what that costs.
-              </div>
-            </div>
-          </div>
+        </div>
+        <div className="container">
+          <MagicBento
+            textAutoHide={false}
+            enableStars={true}
+            enableSpotlight={true}
+            enableBorderGlow={true}
+            enableTilt={false}
+            enableMagnetism={true}
+            clickEffect={true}
+            spotlightRadius={300}
+            particleCount={8}
+            glowColor="52, 211, 153"
+          />
         </div>
       </section>
 
