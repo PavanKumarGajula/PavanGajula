@@ -3,50 +3,28 @@
 import { useState, useEffect } from "react";
 
 type FileEntry = { name: string; size: string };
-type FolderEntry = { name: string; count: number };
 
 export default function LearningPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [files, setFiles] = useState<FileEntry[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const [folders, setFolders] = useState<FolderEntry[]>([]);
-  const [rootFiles, setRootFiles] = useState<FileEntry[]>([]);
-  const [currentFolder, setCurrentFolder] = useState<string | null>(null);
-  const [folderFiles, setFolderFiles] = useState<FileEntry[]>([]);
-  const [folderLoading, setFolderLoading] = useState(false);
-
+  // On mount, try to load files (cookie may already be set)
   useEffect(() => {
-    loadRoot();
+    loadFiles();
   }, []);
 
-  async function loadRoot() {
+  async function loadFiles() {
     const res = await fetch("/api/resources");
     if (res.ok) {
       const data = await res.json();
-      setFolders(data.folders ?? []);
-      setRootFiles(data.files ?? []);
+      setFiles(data.files);
       setAuthed(true);
     } else {
       setAuthed(false);
     }
-  }
-
-  async function openFolder(name: string) {
-    setCurrentFolder(name);
-    setFolderLoading(true);
-    const res = await fetch(`/api/resources?folder=${encodeURIComponent(name)}`);
-    if (res.ok) {
-      const data = await res.json();
-      setFolderFiles(data.files ?? []);
-    }
-    setFolderLoading(false);
-  }
-
-  function goBack() {
-    setCurrentFolder(null);
-    setFolderFiles([]);
   }
 
   async function handleLogin(e: React.FormEvent) {
@@ -60,7 +38,7 @@ export default function LearningPage() {
     });
     setLoading(false);
     if (res.ok) {
-      await loadRoot();
+      await loadFiles();
     } else {
       setError("Wrong password.");
     }
@@ -116,75 +94,7 @@ export default function LearningPage() {
     );
   }
 
-  // ── Folder view ──
-  if (currentFolder !== null) {
-    return (
-      <div className="page">
-        <div className="container">
-          <header className="page-header">
-            <button
-              onClick={goBack}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                color: "var(--text-muted)",
-                fontSize: "12px",
-                letterSpacing: "0.08em",
-                padding: "0",
-                marginBottom: "20px",
-                display: "block",
-              }}
-            >
-              ← BACK
-            </button>
-            <div className="page-eyebrow">FOLDER</div>
-            <h1 className="page-title">{currentFolder}</h1>
-            {!folderLoading && (
-              <p className="page-subtitle">
-                {folderFiles.length} document{folderFiles.length !== 1 ? "s" : ""}
-              </p>
-            )}
-          </header>
-
-          {folderLoading ? (
-            <p style={{ color: "var(--text-muted)" }}>Loading…</p>
-          ) : folderFiles.length === 0 ? (
-            <p style={{ color: "var(--text-muted)" }}>
-              No PDFs in this folder yet — drop files into{" "}
-              <code>private-resources/{currentFolder}/</code>.
-            </p>
-          ) : (
-            <div className="timeline" style={{ marginTop: "0" }}>
-              {folderFiles.map((f) => (
-                <a
-                  key={f.name}
-                  href={`/api/resources/${encodeURIComponent(currentFolder)}/${encodeURIComponent(f.name)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-row"
-                  style={{ textDecoration: "none" }}
-                >
-                  <div className="project-num" style={{ fontSize: "18px" }}>📄</div>
-                  <div className="project-info">
-                    <div className="project-title">{f.name.replace(/\.pdf$/i, "")}</div>
-                    <div className="project-desc">{f.size}</div>
-                  </div>
-                  <div className="project-cta">
-                    open <span className="arrow">→</span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
-
-  // ── Root view ──
-  const totalItems = folders.length + rootFiles.length;
-
+  // ── Resource list ──
   return (
     <div className="page">
       <div className="container">
@@ -194,51 +104,15 @@ export default function LearningPage() {
             Learning <span className="serif">resources</span>.
           </h1>
           <p className="page-subtitle">
-            {folders.length > 0
-              ? `${folders.length} folder${folders.length !== 1 ? "s" : ""}${
-                  rootFiles.length > 0
-                    ? ` · ${rootFiles.length} file${rootFiles.length !== 1 ? "s" : ""}`
-                    : ""
-                }`
-              : `${rootFiles.length} document${rootFiles.length !== 1 ? "s" : ""}`}
+            {files.length} document{files.length !== 1 ? "s" : ""}
           </p>
         </header>
 
-        {totalItems === 0 ? (
-          <p style={{ color: "var(--text-muted)" }}>
-            No resources yet — drop PDFs into <code>private-resources/</code>.
-          </p>
+        {files.length === 0 ? (
+          <p style={{ color: "var(--text-muted)" }}>No resources yet — drop PDFs into <code>private-resources/</code>.</p>
         ) : (
           <div className="timeline" style={{ marginTop: "0" }}>
-            {folders.map((folder) => (
-              <button
-                key={folder.name}
-                onClick={() => openFolder(folder.name)}
-                className="project-row"
-                style={{
-                  textDecoration: "none",
-                  width: "100%",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  textAlign: "left",
-                  font: "inherit",
-                  color: "inherit",
-                }}
-              >
-                <div className="project-num" style={{ fontSize: "18px" }}>📁</div>
-                <div className="project-info">
-                  <div className="project-title">{folder.name}</div>
-                  <div className="project-desc">
-                    {folder.count} document{folder.count !== 1 ? "s" : ""}
-                  </div>
-                </div>
-                <div className="project-cta">
-                  open <span className="arrow">→</span>
-                </div>
-              </button>
-            ))}
-            {rootFiles.map((f) => (
+            {files.map((f) => (
               <a
                 key={f.name}
                 href={`/api/resources/${encodeURIComponent(f.name)}`}
