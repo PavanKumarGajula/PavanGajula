@@ -3,19 +3,14 @@ import StraightPathCase from "@/components/StraightPathCase";
 export default function WorkPage() {
   return (
     <>
-      {/* ── HERO ── */}
+      {/* ── PAGE HEADER ── */}
       <div className="page">
         <div className="container">
           <header className="page-header">
             <div className="page-eyebrow">SELECTED WORK</div>
-            <h1 className="page-title">
-              Three audiences, <span className="serif">three sites</span>.
-            </h1>
+            <h1 className="page-title">Selected work</h1>
             <p className="page-subtitle">
-              A nonprofit&apos;s parents, an IT firm&apos;s enterprise buyers,
-              an engineering firm&apos;s procurement officers. Each had to trust
-              an organization before they&apos;d contact it. My job was to
-              figure out what each of them reads for, and deliver exactly that.
+              Projects I&apos;ve built end to end. For each one, the part that was actually hard.
             </p>
           </header>
         </div>
@@ -28,20 +23,18 @@ export default function WorkPage() {
         </div>
       </div>
 
-
-      {/* ── CASE 2 — SYNACK SOLUTIONS ── */}
+      {/* ── CASE 2 — SYNACK SOLUTIONS (Java / NinjaOne) ── */}
       <div className="case" id="case-2">
         <div className="container">
           <header className="case-header">
             <div className="case-meta">
               <span>002 / SELECTED WORK</span>
-              <span className="accent">CORPORATE</span>
+              <span className="accent">INTERNAL TOOLS</span>
               <span>2024 — PRESENT</span>
             </div>
             <h1 className="case-title">Synack Solutions</h1>
             <p className="case-tagline">
-              A 20-year-old IT services firm&apos;s first modern digital presence.
-              15+ pages, 6 service lines, built from scratch.
+              A Java backend that turns NinjaOne live data into a dashboard you can read mid-incident.
             </p>
           </header>
 
@@ -55,136 +48,69 @@ export default function WorkPage() {
                   </div>
                 </div>
                 <div className="case-sidebar-block">
-                  <div className="case-sidebar-label">AUDIENCE</div>
-                  <div className="case-sidebar-value">
-                    Enterprise clients evaluating an IT services partner
-                  </div>
-                </div>
-                <div className="case-sidebar-block">
                   <div className="case-sidebar-label">MY ROLE</div>
                   <div className="case-sidebar-value">
-                    Frontend developer &middot; architecture, build, deploy
+                    Java Full Stack Developer &middot; 2024 &ndash; present
                   </div>
                 </div>
                 <div className="case-sidebar-block">
                   <div className="case-sidebar-label">STACK</div>
                   <div className="case-sidebar-value">
-                    HTML5 &middot; CSS3 &middot; Tailwind &middot; AOS &middot;
-                    JavaScript ES6+
+                    Java &middot; Spring Boot &middot; NinjaOne API &middot; JavaScript &middot; SQL
                   </div>
                 </div>
                 <div className="case-sidebar-block">
-                  <div className="case-sidebar-label">LIVE</div>
-                  <div className="case-sidebar-value">
-                    <a
-                      href="https://synacksolutions.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      synacksolutions.com
-                    </a>
-                  </div>
+                  <div className="case-sidebar-label">TYPE</div>
+                  <div className="case-sidebar-value">Internal ops tool &mdash; not public</div>
                 </div>
               </aside>
 
               <article className="case-content">
-                <h3 data-step="01 · PROBLEM">
-                  A 20-year-old firm with no online presence
+                <h3 data-step="01 · STARTING POINT">
+                  An RMM platform with the right data, in the wrong shape for an incident
                 </h3>
                 <p>
-                  Synack Solutions has been delivering IT services from Baltimore{" "}
-                  <strong>since 2005</strong>. Twenty years of work, real clients,
-                  real outcomes &mdash; and a website that hadn&apos;t kept up. For
-                  a B2B firm whose buyers Google before they meet, that&apos;s a
-                  credibility problem. Procurement teams pattern-match on digital
-                  presence, and an outdated site signals an outdated company.
+                  Synack is an IT consulting and managed services firm. Their technicians live
+                  in <strong>NinjaOne</strong> &mdash; it&apos;s the RMM platform that monitors
+                  client devices, surfaces alerts, and logs everything that happens across the
+                  fleet. The data is all there. What it isn&apos;t built for is reading
+                  quickly when a client is on the phone and something is actively broken.
                 </p>
                 <p>
-                  The brief was to build a modern, professional site that showcased
-                  the firm&apos;s <strong>6 service lines</strong> and supported
-                  new business development.
+                  The job was to pull NinjaOne&apos;s live data into a form techs could
+                  scan in seconds, not click through in minutes.
                 </p>
 
-                <h3 data-step="02 · APPROACH">Editorial, not promotional</h3>
+                <h3 data-step="02 · WHAT I BUILT">Java backend + ops dashboard</h3>
                 <p>
-                  Most IT services sites read like marketing brochures &mdash;
-                  vague claims, stock photography, hero videos of generic office
-                  workers. I wanted Synack&apos;s site to read more like a
-                  publication: clean typography, structured content, scroll-driven
-                  pacing.
+                  [ADD: describe what you built &mdash; the architecture, what data it pulls from
+                  NinjaOne, what the dashboard surfaces, and how the team uses it day-to-day.]
                 </p>
-                <p>Decisions that shaped the build:</p>
-                <ul>
-                  <li>
-                    A <strong>15+ page architecture</strong> with a clear hierarchy
-                    &mdash; service lines on top, supporting content below
-                  </li>
-                  <li>
-                    Modular CSS organized into a maintainable folder structure so
-                    the firm could update content without me
-                  </li>
-                  <li>
-                    <strong>AOS (Animate On Scroll)</strong> for restrained motion
-                    that gives the page life without being a distraction
-                  </li>
-                  <li>
-                    Smooth scroll navigation that turns the site into one continuous
-                    narrative instead of a click-driven gallery
-                  </li>
-                  <li>
-                    A client testimonials section grounded in real quotes, not stock
-                    language
-                  </li>
-                </ul>
+
+                <h3 data-step="03 · THE HARD PART">
+                  [ADD: title for the hardest part]
+                </h3>
+                <p>
+                  [ADD: describe the core technical challenge and how you solved it &mdash; e.g.
+                  webhook reliability, data normalization across device types, latency, auth.]
+                </p>
 
                 <div className="case-callout">
-                  Twenty years of business deserves a site that doesn&apos;t
-                  apologize for itself.
+                  [ADD: one sentence that captures what made this project worth doing.]
                 </div>
 
-                <h3 data-step="03 · BUILD">Vanilla stack, premium feel</h3>
+                <h3 data-step="04 · RESULTS">[ADD: outcome]</h3>
                 <p>
-                  I built the site in{" "}
-                  <strong>
-                    HTML5, CSS3, Tailwind, and vanilla JavaScript (ES6+)
-                  </strong>
-                  . No React. No build step. The deliberate constraint: the firm
-                  should be able to hire any frontend developer in five years and
-                  have them edit the site without learning a custom stack.
-                </p>
-                <p>
-                  Tailwind let me move fast on layout while keeping the bundle
-                  tiny. AOS handled animation declaratively, so adding motion to a
-                  new section was a single attribute, not a JavaScript file. The
-                  whole site loads fast, looks current, and will keep working long
-                  after I move on.
-                </p>
-
-                <h3 data-step="04 · OUTCOME">
-                  A digital presence that matches the company
-                </h3>
-                <p>
-                  For a firm that had been in business for 20 years with no modern
-                  web presence, the launch wasn&apos;t a redesign &mdash; it was a
-                  debut. The site now anchors the firm&apos;s business development
-                  across all 6 service lines, giving potential clients a credible
-                  artifact to evaluate before any sales conversation begins.
+                  [ADD: what changed for the team &mdash; time saved per incident, visibility
+                  gained, anything measurable. Or note that it&apos;s newly in use.]
                 </p>
 
                 <div className="reflection">
                   <div className="reflection-label">WHAT STUCK WITH ME</div>
                   <p>
-                    The hardest part of this project wasn&apos;t code &mdash; it
-                    was{" "}
-                    <strong>
-                      understanding what a 20-year-old company actually does
-                    </strong>{" "}
-                    and translating that into 15+ pages that don&apos;t repeat
-                    themselves. Senior engineers have a saying that the best feature
-                    you can ship is the one you don&apos;t ship. Mature businesses
-                    are full of features (services, programs, history) that newer
-                    companies haven&apos;t earned yet. Designing for that took more
-                    interviewing than coding.
+                    [ADD: one honest observation about what this project taught you &mdash; about
+                    Java, internal tooling, working inside the company you&apos;re building for,
+                    or something else.]
                   </p>
                 </div>
               </article>
@@ -193,7 +119,6 @@ export default function WorkPage() {
         </div>
       </div>
 
-
       {/* ── CASE 3 — HKM ENGINEERS ── */}
       <div className="case" id="case-3">
         <div className="container">
@@ -201,12 +126,11 @@ export default function WorkPage() {
             <div className="case-meta">
               <span>003 / SELECTED WORK</span>
               <span className="accent">SMALL BUSINESS</span>
-              <span>2025 — PRESENT</span>
+              <span>2024</span>
             </div>
             <h1 className="case-title">HKM Engineers</h1>
             <p className="case-tagline">
-              A construction engineering firm in Illinois. 3 service lines,
-              4-step client workflow, documentation-first design.
+              An engineering firm&apos;s first site, designed to look like engineers made it.
             </p>
           </header>
 
@@ -216,27 +140,26 @@ export default function WorkPage() {
                 <div className="case-sidebar-block">
                   <div className="case-sidebar-label">CLIENT</div>
                   <div className="case-sidebar-value">
-                    HKM Engineers &middot; construction engineering firm &middot;
-                    Illinois
+                    HKM Engineers &middot; construction engineering firm &middot; Illinois
                   </div>
                 </div>
                 <div className="case-sidebar-block">
                   <div className="case-sidebar-label">FOCUS</div>
                   <div className="case-sidebar-value">
-                    Construction Inspection, Construction Management, Program
+                    Construction Inspection &middot; Construction Management &middot; Program
                     Oversight &middot; Transportation / Structures / Facilities
                   </div>
                 </div>
                 <div className="case-sidebar-block">
                   <div className="case-sidebar-label">MY ROLE</div>
                   <div className="case-sidebar-value">
-                    Frontend developer &middot; design, build, deploy
+                    Solo Designer &amp; Developer, design to deploy &middot; 2024
                   </div>
                 </div>
                 <div className="case-sidebar-block">
                   <div className="case-sidebar-label">STACK</div>
                   <div className="case-sidebar-value">
-                    HTML5 &middot; CSS3 &middot; JavaScript
+                    Next.js &middot; React &middot; Tailwind &middot; Figma &middot; Vercel
                   </div>
                 </div>
                 <div className="case-sidebar-block">
@@ -254,92 +177,59 @@ export default function WorkPage() {
               </aside>
 
               <article className="case-content">
-                <h3 data-step="01 · PROBLEM">
-                  An engineering firm that did high-stakes work, invisibly
+                <h3 data-step="01 · STARTING POINT">
+                  A firm doing high-stakes infrastructure work with no web presence
                 </h3>
                 <p>
-                  HKM Engineers does{" "}
-                  <strong>infrastructure work in Illinois</strong> &mdash;
-                  Construction Inspection, Construction Management, and Program
-                  Oversight across Transportation, Structures, and Facilities. Work
-                  that matters. Bridges, roads, public buildings. But for a firm
-                  bidding on public-sector infrastructure projects, an invisible
-                  online presence is a credibility ceiling. Procurement officers
-                  and partner firms expect to verify you before they call.
-                </p>
-                <p>
-                  The brief: a documentation-first website that communicates
-                  technical credibility, not marketing flash.
+                  HKM Engineers is a construction engineering firm in Illinois &mdash;
+                  construction inspection, construction management, and program oversight across
+                  transportation, structures, and facilities. They came to me to build their
+                  first website. I took it from a blank Figma file to a live Next.js site on
+                  Vercel, DNS included.
                 </p>
 
-                <h3 data-step="02 · APPROACH">
-                  Documentation-first, multi-page
-                </h3>
+                <h3 data-step="02 · WHAT I BUILT">Blueprint visual language, start to finish</h3>
                 <p>
-                  Engineering firms aren&apos;t sold like consumer products. Their
-                  clients read carefully, compare specs, and look for evidence of
-                  capability before reaching out. I designed the site as a{" "}
-                  <strong>structured multi-page document</strong>:
+                  A multi-page site &mdash; Home, Services, Projects, and Contact &mdash; built on
+                  a documentation-first, <strong>blueprint visual language</strong> that matches
+                  how an engineering firm actually presents itself. It walks a visitor through a
+                  four-step client workflow, shows a project portfolio, and routes everything
+                  toward a consultation request.
                 </p>
-                <ul>
-                  <li>
-                    One dedicated page per service line &mdash; no smushing three
-                    offerings onto a single brochure page
-                  </li>
-                  <li>
-                    A <strong>4-step client workflow</strong> diagram showing how a
-                    project actually moves through HKM &mdash; the kind of process
-                    detail procurement officers screen for
-                  </li>
-                  <li>
-                    A project portfolio section grounded in real verticals
-                    (transportation, structures, facilities), not aspirational
-                    language
-                  </li>
-                  <li>
-                    A consultation request flow that gives potential clients a clear
-                    path from &ldquo;interested&rdquo; to &ldquo;in touch&rdquo;
-                  </li>
-                </ul>
+                <p>
+                  I handled the design in Figma, the build in Next.js and React with Tailwind,
+                  the deployment to Vercel, and the DNS configuration.
+                </p>
 
                 <div className="case-callout">
-                  Procurement teams scan for evidence, not adjectives. The whole
-                  site is built around that.
+                  An engineering firm&apos;s site should look like it was made by people who
+                  understand engineering, not by a generic template.
                 </div>
 
-                <h3 data-step="03 · BUILD">Vanilla and durable</h3>
+                <h3 data-step="03 · THE HARD PART">Design fidelity, not just whether it renders</h3>
                 <p>
-                  HTML, CSS, and JavaScript &mdash; no framework. A small firm
-                  shouldn&apos;t have to depend on a Node version or a build
-                  pipeline to maintain its website. The whole site is a folder of
-                  files that any developer can read, edit, and redeploy in an
-                  afternoon.
+                  The blueprint aesthetic was a deliberate bet. Getting that from a Figma
+                  concept into <strong>pixel-accurate, responsive Next.js</strong> without losing
+                  the intent was the real work. It&apos;s easy to build something that looks
+                  right on the artboard and drifts in the browser. Holding the visual language
+                  through responsive breakpoints, without reaching for compromises that undercut
+                  the concept, took more iteration than the build itself.
                 </p>
 
-                <h3 data-step="04 · OUTCOME">
-                  A web presence that matches the work
-                </h3>
+                <h3 data-step="04 · RESULTS">[ADD: outcome]</h3>
                 <p>
-                  HKM now has a credible, structured online presence covering its{" "}
-                  <strong>3 service lines</strong> across Illinois infrastructure
-                  verticals. The site supports business development the way the
-                  firm actually wins work &mdash; by demonstrating process, not by
-                  selling.
+                  [ADD: that it&apos;s live, any SEO or performance results, client response, or
+                  note that it&apos;s newly launched.]
                 </p>
 
                 <div className="reflection">
                   <div className="reflection-label">WHAT STUCK WITH ME</div>
                   <p>
-                    <strong>
-                      Different industries read websites differently.
-                    </strong>{" "}
-                    A nonprofit&apos;s parents skim for trust signals on a phone.
-                    An IT firm&apos;s clients pattern-match on professionalism. An
-                    engineering firm&apos;s procurement officers read for evidence
-                    of process. Same medium, three completely different rhetorics.
-                    Designing well means knowing which rhetoric you&apos;re writing
-                    in &mdash; and that&apos;s something I want to study formally,
-                    not just pick up by repetition.
+                    Different industries read websites differently. A nonprofit&apos;s parents skim
+                    for trust signals on a phone. An IT firm&apos;s clients pattern-match on
+                    professionalism. An engineering firm&apos;s procurement officers read for
+                    evidence of process. Same medium, three completely different rhetorics.
+                    Designing well means knowing which one you&apos;re writing in.
                   </p>
                 </div>
               </article>
@@ -348,6 +238,74 @@ export default function WorkPage() {
         </div>
       </div>
 
-</>
+      {/* ── CASE 4 — TRICAN SECURITY ── */}
+      <div className="case" id="case-4">
+        <div className="container">
+          <header className="case-header">
+            <div className="case-meta">
+              <span>004 / SELECTED WORK</span>
+              <span className="accent">[ADD: sector]</span>
+              <span>[ADD: year or &ldquo;IN PROGRESS&rdquo;]</span>
+            </div>
+            <h1 className="case-title">Trican Security</h1>
+            <p className="case-tagline">
+              [ADD: one-line summary of the project]
+            </p>
+          </header>
+
+          <section className="case-body">
+            <div className="case-grid">
+              <aside className="case-sidebar">
+                <div className="case-sidebar-block">
+                  <div className="case-sidebar-label">CLIENT</div>
+                  <div className="case-sidebar-value">[ADD: Trican Security · location]</div>
+                </div>
+                <div className="case-sidebar-block">
+                  <div className="case-sidebar-label">MY ROLE</div>
+                  <div className="case-sidebar-value">[ADD: your role] &middot; [ADD: year or in progress]</div>
+                </div>
+                <div className="case-sidebar-block">
+                  <div className="case-sidebar-label">STACK</div>
+                  <div className="case-sidebar-value">[ADD: stack]</div>
+                </div>
+                <div className="case-sidebar-block">
+                  <div className="case-sidebar-label">LIVE</div>
+                  <div className="case-sidebar-value">[ADD: domain or &ldquo;in progress&rdquo;]</div>
+                </div>
+              </aside>
+
+              <article className="case-content">
+                <h3 data-step="01 · STARTING POINT">[ADD: section title]</h3>
+                <p>
+                  [ADD: what Trican Security does and where the project began.]
+                </p>
+
+                <h3 data-step="02 · WHAT I BUILT">[ADD: section title]</h3>
+                <p>
+                  [ADD: what you built &mdash; scope, pages, features.]
+                </p>
+
+                <h3 data-step="03 · THE HARD PART">[ADD: section title]</h3>
+                <p>
+                  [ADD: the hardest or most interesting part, and what you did about it.]
+                </p>
+
+                <h3 data-step="04 · RESULTS">[ADD: outcome]</h3>
+                <p>
+                  [ADD: outcome, or that it&apos;s newly launched / still in progress.]
+                </p>
+
+                <div className="reflection">
+                  <div className="reflection-label">WHAT STUCK WITH ME</div>
+                  <p>
+                    [ADD: one honest observation from this project.]
+                  </p>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </>
   );
 }
